@@ -4,9 +4,11 @@ import axios from "axios";
 import AppLayout from '@/Layouts/AppLayout.vue';
 import MessageContainer from "@/Pages/Chat/messageContainer.vue";
 import InputMessage from "@/Pages/Chat/InputMessage.vue";
+import ChatRoomSelection from "@/Pages/Chat/chatRoomSelection.vue";
 
 export default defineComponent({
     components: {
+        ChatRoomSelection,
         AppLayout,
         MessageContainer,
         InputMessage
@@ -53,7 +55,11 @@ export default defineComponent({
     <AppLayout title="Dashboard">
         <template #header>
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                Chat
+                <chat-room-selection
+                    v-if="currentRoom.id"
+                    :rooms="chatRooms"
+                    :currentRoom="currentRoom"
+                    v-on:roomchanged="setRoom( $event )"/>
             </h2>
         </template>
 
