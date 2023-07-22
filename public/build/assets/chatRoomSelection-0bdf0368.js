@@ -1,0 +1,1 @@
+import{_ as e}from"./_plugin-vue_export-helper-c27b6911.js";import{o,e as t}from"./app-7fbc79e7.js";const c={name:"chatRoomSelection"};function n(r,a,s,i,l,m){return o(),t("div",null,"Selection View")}const f=e(c,[["render",n]]);export{f as default};

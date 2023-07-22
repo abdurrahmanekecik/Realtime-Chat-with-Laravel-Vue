@@ -1,0 +1,1 @@
+import{_ as e}from"./_plugin-vue_export-helper-c27b6911.js";import{o as s,e as t}from"./app-7fbc79e7.js";const o={name:"messageItem"};function a(r,n,c,m,p,_){return s(),t("div",null,"MessageItem")}const l=e(o,[["render",a]]);export{l as default};

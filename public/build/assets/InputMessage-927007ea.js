@@ -1,0 +1,1 @@
+import{_ as e}from"./_plugin-vue_export-helper-c27b6911.js";import{o as s,e as t}from"./app-7fbc79e7.js";const n={name:"InputMessage"};function o(a,r,c,p,_,u){return s(),t("div",null,"Input Message")}const i=e(n,[["render",o]]);export{i as default};
