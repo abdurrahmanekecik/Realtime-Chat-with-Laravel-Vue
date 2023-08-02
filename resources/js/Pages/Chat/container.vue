@@ -29,19 +29,18 @@ export default defineComponent({
         }
     },
     methods:{
-        connect(){
-            if( this.currentRoom.id){
+        connect() {
+            if (this.currentRoom.id) {
                 let vm = this;
                 this.getMessages();
                 window.Echo.private("chat." + this.currentRoom.id)
-                .listen('.message.new', e => {
-                    vm.getMessages();
-                })
-
+                    .listen('.NewChatMessage', function (e) {
+                        vm.getMessages();
+                    });
             }
         },
-        disconnect(room){
-            window.Echo.leave("chat." + room.id)
+        disconnect(room) {
+            window.Echo.leave("chat." + room.id);
         },
         getRooms(){
             axios.get('/chat/rooms')
@@ -66,9 +65,10 @@ export default defineComponent({
                 })
         }
     },
-    created() {
+    mounted() {
         this.getRooms();
     }
+
 })
 </script>
 

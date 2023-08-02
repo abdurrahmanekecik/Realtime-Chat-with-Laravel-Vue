@@ -4,6 +4,9 @@ use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\ChatController;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Broadcast;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -50,3 +53,15 @@ Route::middleware('auth:sanctum')->get('/chat/room/{roomId}/messages',[ChatContr
 Route::middleware('auth:sanctum')->post('/chat/room/{roomId}/message',[ChatController::class,'newMessage']);
 
 
+
+
+
+Route::post('/broadcasting/auth', function (Request $request) {
+    // Kullanıcı kimlik doğrulamasını kontrol eder
+    if (Auth::check()) {
+        // Kimlik doğrulaması geçerli ise kanal yetkilendirme işlemini gerçekleştirir
+        return Broadcast::auth($request);
+    }
+    // Kimlik doğrulaması geçerli değilse erişim izni reddedilir
+    return response()->json(['message' => 'Unauthorized'], 401);
+});

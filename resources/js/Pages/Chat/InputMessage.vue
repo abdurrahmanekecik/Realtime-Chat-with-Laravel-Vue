@@ -18,30 +18,30 @@
 <script>
 export default {
     props: ["room"],
-    data: function (){
+    data() {
         return {
             message: ''
         }
     },
-    methods:{
-        sendMessage(){
-            if (this.message === ' '){
+    methods: {
+        sendMessage() {
+            if (!this.message.trim()) {
                 return;
             }
-            axios.post('/chat/room/' + this.room.id + '/message',{
+            axios.post('/chat/room/' + this.room.id + '/message', {
                 message: this.message
             })
-            .then( response =>{
-                if (response.data == 201){
-                    this.message='';
-                    this.$emit('messagesent');
-                }
-            })
+                .then(response => {
+                    if (response.data === 201) {
+                        this.message = '';
+                        this.$emit('messagesent');
+                    }
+                })
         }
     }
 }
 </script>
 
 <style scoped>
-
+/* Your component styles here */
 </style>
