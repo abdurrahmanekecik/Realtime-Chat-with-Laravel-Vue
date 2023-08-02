@@ -12,7 +12,7 @@ git clone git@github.com:abdurrahmanekecik/Realtime-Chat-with-Laravel-Vue.git
 cd Realtime-Chat-with-Laravel-Vue
 Rename the .env.example file to .env.
 ```
-Update the .env file with your database and Iyzico payment gateway information.
+Update the .env file with your database and Pusher information.
 
 Generate an application key:
 
@@ -44,8 +44,6 @@ Start the Laravel development server:
 php artisan serve
 ```
 Access the site:
-
-Open an account in Pusher; then enter your account information in the relevant fields in .env.
 
 
 If you are working locally, open your web browser and go to http://127.0.0.1:8000/.
